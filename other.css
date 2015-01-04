@@ -1,0 +1,28 @@
+.source-field {
+  position: fixed;
+  top : 7%;
+  width: 55%;
+  /*border: 1px solid red;*/
+}
+
+.input-field {
+  top : 7%;
+  position: fixed;
+  left: 60%;
+  width: 50%;
+  /*border: 1px solid blue;*/
+}
+
+.language-field {
+  position: fixed;
+  top: 65%;
+  left: 25%;
+}
+
+.button-field {
+  float : right;
+  position: fixed;
+  left: 50%;
+  top : 64%;
+
+}

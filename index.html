@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Compiler</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
+    <link rel = "stylesheet" href = "other.css">
+    <link rel = "stylesheet" href = "main.css">
+  </head>
+  <body>
+    <form action = "compile.php" method = "post" class = "form-control">
+    COMPILER
+
+      <div class = "source-field">
+        Source:
+        <br /> <br />
+        <textarea name = "source" rows = "15" cols = "100" ></textarea>
+      </div>
+    
+      <div class = "input-field">
+        Stdin: <br /> <br />
+        <textarea name = "input" rows = "15" cols "45"></textarea>
+      </div>
+
+      <div class = "language-field">
+        Language:&nbsp;&nbsp;&nbsp;
+        <select name = "language">
+          <option>C++</option>
+          <option>C++11</option>
+          <option>Python2</option>
+          <option>Java</option>
+          <option>PHP</option>
+        </select>
+      </div>
+      <div class ="button-field">
+        <button type = "submit" name = "submit" class = "btn btn-primary">Compile</button
+      </div>
+    </form>
+  </body>
+</html>
+
