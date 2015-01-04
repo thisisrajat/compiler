@@ -62,32 +62,46 @@
     header('location: output');
   }
 
-  else if($language === 'Python2') {
+  // else if($language === 'Python2') {
 
-    // Put the source in file.py
-    file_put_contents('file.py', $source);
+  //   // Put the source in file.py
+  //   file_put_contents('file.py', $source);
 
-    // Interpret it
-    shell_exec('python file.py > output 2>&1');
+  //   // Interpret it
+  //   shell_exec('python file.py > output 2>&1');
 
-    // Housekeeping
-    shell_exec('cat blank > file.py && cat blank > input.txt');
+  //   // Housekeeping
+  //   shell_exec('cat blank > file.py && cat blank > input.txt');
 
-    // Redirect
-    header('location: output');
+  //   // Redirect
+  //   header('location: output');
 
-  }
+  // }
 
-  else if($language === 'Java') {
+  // else if($language === 'Java') {
 
-  }
+  // }
 
-  else if ($language === 'PHP') {
+  // else if ($language === 'PHP') {
 
-  }
+  // }
 
   else if($language === 'C') {
 
+    // Put the source in the file.cpp
+    file_put_contents('file.c', $source);
+
+    // Compile the file
+    shell_exec('gcc file.c > output 2>&1');
+
+    // Run it
+    shell_exec('./a.out < input.txt > output');
+
+    //Housekeeping
+    shell_exec('rm -rf a.out && cat blank > file.c && cat blank > input.txt');
+
+    // Redirect
+    header('location: output');
   }
 
   else {
