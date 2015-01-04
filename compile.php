@@ -24,14 +24,14 @@
 
   file_put_contents('input.txt', $input);
 
-  // Choose which language and Appropriately execute
+  // Choose which language and Appropriately Compile
 
   if($language === 'C++') {
 
     // Put the source in file.cpp
     file_put_contents('file.cpp', $source);
 
-    // Execute the file
+    // Compile the file
     shell_exec('g++ -Wall -Wextra -O2 file.cpp > output 2>&1');
     
     // Run it
@@ -46,9 +46,35 @@
 
   else if($language === 'C++11') {
 
+    // Put the source in the file.cpp
+    file_put_contents('file.cpp', $source);
+
+    // Compile the file
+    shell_exec('g++ -Wall -std=c++11 -O2 file.cpp > output 2>&1');
+
+    // Run it
+    shell_exec('./a.out < input.txt > output');
+
+    //Housekeeping
+    shell_exec('rm -rf a.out && cat blank > file.cpp && cat blank > input.txt');
+
+    // Redirect
+    header('location: output');
   }
 
   else if($language === 'Python2') {
+
+    // Put the source in file.py
+    file_put_contents('file.py', $source);
+
+    // Interpret it
+    shell_exec('python file.py > output 2>&1');
+
+    // Housekeeping
+    shell_exec('cat blank > file.py && cat blank > input.txt');
+
+    // Redirect
+    header('location: output');
 
   }
 
@@ -57,6 +83,10 @@
   }
 
   else if ($language === 'PHP') {
+
+  }
+
+  else if($language === 'C') {
 
   }
 
