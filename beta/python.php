@@ -7,7 +7,7 @@
     file_put_contents("{$dynamic_dir}/input.txt", $input);
 
     // Compile the file
-    shell_exec("python {$dynamic_dir}/file.py");
+    shell_exec("python {$dynamic_dir}/file.py < {$dynamic_dir}/input.txt > output 2>&1");
 
     // Housekeeping
     shell_exec("rm -rf {$dynamic_dir}");
