@@ -29,6 +29,14 @@
     require_once('c++.php');
   }
 
+  else if($language === 'C++11') {
+    require_once('c++11.php');
+  }
+
+  else if($language === 'Python2') {
+    require_once('python.php');
+  }
+
   else {
     shell_exec('echo Not Supported, yet. > output');
     header('location: output');
