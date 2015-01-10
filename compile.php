@@ -26,15 +26,15 @@
   shell_exec("mkdir {$dynamic_dir}");
 
   if($language === 'C++') {
-    require_once('c++.php');
+    require_once('lang/c++.php');
   }
 
   else if($language === 'C++11') {
-    require_once('c++11.php');
+    require_once('lang/c++11.php');
   }
 
   else if($language === 'Python2') {
-    require_once('python.php');
+    require_once('lang/python.php');
   }
 
   else {
