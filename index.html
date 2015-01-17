@@ -2,40 +2,51 @@
 <html>
   <head>
     <title>Compiler</title>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"> -->
-    <link rel = "stylesheet" href = "other.css">
     <link rel = "stylesheet" href = "main.css">
+    <script type = "text/javascript" src = "script.js"></script> 
   </head>
   <body>
-    <form action = "compile.php" method = "post" class = "form-control">
-    COMPILER
-
-      <div class = "source-field">
-        Source:
-        <br /> <br />
-        <textarea name = "source" rows = "15" cols = "100" ></textarea>
-      </div>
     
-      <div class = "input-field">
-        Stdin: <br /> <br />
-        <textarea name = "input" rows = "15" cols "45"></textarea>
-      </div>
+    <div class = "sidebar lang">
+      <select id = "lang" name = "language">
+        <option>C++</option>
+        <option>C</option>
+        <option>Java</option>
+        <option>Python 2</option>
+        <option>Ruby</option>
+        <option>C++11</option>
+      </select>
+    </div>
+    
+    <input type = "submit" value = "Compile" class = "sidebar button btn-primary" onclick = "compile(); return false;">
+    
+    <input type = "button" value = "Input" id = "stdin" class = "sidebar button" onclick="takeInput(); return false;">
 
-      <div class = "language-field">
-        Language: &nbsp;&nbsp;&nbsp;
-        <select name = "language">
-          <option>C++</option>
-          <option>C++11</option>
-          <option>Python2</option>
-          <option>C</option>
-          <option>PHP</option>
-          <option>Java</option>
-        </select>
-      </div>
-      <div class ="button-field">
-        <button type = "submit" name = "submit" class = "btn btn-primary">Compile</button
-      </div>
-    </form>
+    <div id = "output-box" >
+      <textarea id = "output" rows = "15" wrap = "soft" onblur="hide(); return false;">
+      </textarea>
+    </div>
+
+    <div id = "progress">
+      <img src = "processing.gif" height = "16" width = "16">
+    </div>
+
+    <div id = "input-box">
+      <textarea id = "input" rows = "7">
+      </textarea>
+    </div>
+
+
+    <div id="editor">//code your heart out :)
+    </div>
+        
+    <!-- Loading Ace Editor from CDN because apparently Heroku is not fast enough! -___- -->
+    <script src="ace.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <script>
+        var editor = ace.edit("editor");
+    </script>
+
   </body>
 </html>
 
