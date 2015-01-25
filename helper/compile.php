@@ -43,6 +43,12 @@
     shell_exec("./{$dir}/timeout.sh -t 5 python {$dir}/file.py < {$dir}/input.txt > output.txt 2>&1");
   
   }
+  else if($language === 'C') {
+    shell_exec("touch {$dir}/file.c");
+    file_put_contents("{$dir}/file.c", $source);
+    shell_exec("chmod 544 {$dir}");
+    shell_exec("gcc -std=c99 {$dir}/file.c > output.txt 2>&1 && mv a.out {$dir}/a.out && chmod 544 {$dir} && ./{$dir}/timeout.sh -t 5 ./{$dir}/a.out < {$dir}/input.txt > output.txt 2>&1");
+  }
   else {
     shell_exec("echo Not Supported Yet :( > output.txt");
   }
