@@ -23,8 +23,8 @@
   // Chmod $dir to make a sandbox. Only read and execute permission. No write.
   shell_exec("cp timeout.sh {$dir}/timeout.sh && chmod 777 {$dir}/timeout.sh");
 
-  // Language specific logics now.
 
+  // Language specific logics now.
   if($language === 'C++' || $language === 'C++11') {
 
     $flag = "";
@@ -46,8 +46,7 @@
   else if($language === 'C') {
     shell_exec("touch {$dir}/file.c");
     file_put_contents("{$dir}/file.c", $source);
-    shell_exec("chmod 544 {$dir}");
-    shell_exec("gcc -std=c99 {$dir}/file.c > output.txt 2>&1 && mv a.out {$dir}/a.out && chmod 544 {$dir} && ./{$dir}/timeout.sh -t 5 ./{$dir}/a.out < {$dir}/input.txt > output.txt 2>&1");
+    shell_exec("gcc {$dir}/file.c > output.txt 2>&1 && mv a.out {$dir}/a.out && chmod 544 {$dir} && ./{$dir}/timeout.sh -t 5 ./{$dir}/a.out <{$dir}/input.txt >output.txt 2>&1");
   }
   else {
     shell_exec("echo Not Supported Yet :( > output.txt");
